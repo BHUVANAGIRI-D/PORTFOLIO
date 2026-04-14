@@ -1,0 +1,165 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background: linear-gradient(270deg, #000000, #1a0000, #000000);
+  background-size: 600% 600%;
+  animation: bgMove 10s ease infinite;
+  color:white;
+  overflow-x:hidden;
+}
+
+@keyframes bgMove{
+  0%{background-position:0%;}
+  50%{background-position:100%;}
+  100%{background-position:0%;}
+}
+
+/* PARTICLES */
+#particles{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+/* CURSOR */
+.cursor{
+  position:fixed;
+  width:20px;
+  height:20px;
+  background:#ff2e2e;
+  border-radius:50%;
+  pointer-events:none;
+  box-shadow:0 0 20px #ff2e2e,0 0 60px #ff2e2e;
+  transform:translate(-50%,-50%);
+  z-index:9999;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 50px;
+}
+header h1{color:#ff2e2e;}
+nav a{margin:0 10px;color:white;text-decoration:none;}
+nav a:hover{color:#ff2e2e;}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+/* PROFILE FIXED CENTER */
+.profile-box{
+  position:relative;
+  width:200px;
+  height:200px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.profile{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #ff2e2e;
+  box-shadow:0 0 30px #ff2e2e;
+  z-index:2;
+}
+
+/* RINGS */
+.ring{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+}
+
+.ring1{
+  width:180px;
+  height:180px;
+  border-top:3px solid #ff2e2e;
+  border-bottom:3px solid #ff2e2e;
+  animation:spin 2s linear infinite;
+}
+
+.ring2{
+  width:220px;
+  height:220px;
+  border-left:3px solid #00ffff;
+  border-right:3px solid #00ffff;
+  animation:spinReverse 4s linear infinite;
+}
+
+@keyframes spin{
+  100%{transform:translate(-50%,-50%) rotate(360deg);}
+}
+
+@keyframes spinReverse{
+  100%{transform:translate(-50%,-50%) rotate(-360deg);}
+}
+
+/* TEXT */
+.hero h2{font-size:40px;}
+.hero span{color:#ff2e2e;}
+
+.btn{
+  margin-top:15px;
+  padding:10px 20px;
+  background:#ff2e2e;
+  border:none;
+  color:white;
+  cursor:pointer;
+}
+
+/* SECTIONS */
+section{
+  padding:80px 50px;
+  text-align:center;
+}
+
+h2{color:#ff2e2e;margin-bottom:20px;}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  padding:20px;
+  border-radius:12px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 30px #ff2e2e;
+}
+
+/* FADE */
+.fade{
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s;
+}
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
