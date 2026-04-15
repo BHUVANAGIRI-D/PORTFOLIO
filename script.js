@@ -1,21 +1,29 @@
-/* CURSOR */
+/* CURSOR (SAFE) */
 const cursor=document.querySelector(".cursor");
+if(cursor){
 document.addEventListener("mousemove",e=>{
   cursor.style.left=e.clientX+"px";
   cursor.style.top=e.clientY+"px";
 });
+}
 
 /* TYPING */
 const words=["Web Developer","Python Learner","AI Enthusiast"];
 let i=0,j=0,del=false;
 
 function type(){
+let el=document.getElementById("typing");
+if(!el) return;
+
 let cur=words[i];
-document.getElementById("typing").textContent=cur.substring(0,j);
+el.textContent=cur.substring(0,j);
 
 if(!del && j<cur.length){j++;}
 else if(del && j>0){j--;}
-else{del=!del;if(!del)i=(i+1)%words.length;}
+else{
+  del=!del;
+  if(!del) i=(i+1)%words.length;
+}
 
 setTimeout(type,del?50:100);
 }
@@ -23,14 +31,19 @@ type();
 
 /* SCROLL */
 function goProject(){
-document.getElementById("projects").scrollIntoView({behavior:"smooth"});
+let sec=document.getElementById("projects");
+if(sec){
+sec.scrollIntoView({behavior:"smooth"});
+}
 }
 
-/* MUSIC */
+/* 🎵 MUSIC FIX */
 const music=document.getElementById("music");
-function toggleMusic(){
-if(music.paused){music.play();}
-else{music.pause();}
+
+if(music){
+document.body.addEventListener("click",()=>{
+  music.play().catch(()=>{}); // prevent error
+},{once:true});
 }
 
 /* FADE */
@@ -44,12 +57,18 @@ el.classList.add('show');
 });
 });
 
-/* PARTICLES */
+/* PARTICLES (RESPONSIVE FIX) */
 const canvas=document.getElementById("particles");
+
+if(canvas){
 const ctx=canvas.getContext("2d");
 
+function resize(){
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
+}
+resize();
+window.addEventListener("resize",resize);
 
 let particles=[];
 
@@ -79,3 +98,4 @@ ctx.fill();
 requestAnimationFrame(animate);
 }
 animate();
+}
