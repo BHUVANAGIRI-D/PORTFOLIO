@@ -35,7 +35,6 @@
 <h3 id="typing"></h3>
 
 <button class="btn" onclick="goProject()">View Projects</button>
-<button class="btn" onclick="toggleMusic()">🎵 Music</button>
 
 <audio id="music" loop>
   <source src="music.mp3" type="audio/mp3">
@@ -65,12 +64,30 @@
 </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="fade">
-<h2>Contact</h2>
-<input placeholder="Name">
-<input placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button class="btn">Send</button>
+<h2>Contact Me</h2>
+
+<div class="contact-box">
+
+  <div class="input-group">
+    <input type="text" required>
+    <label>Name</label>
+  </div>
+
+  <div class="input-group">
+    <input type="email" required>
+    <label>Email</label>
+  </div>
+
+  <div class="input-group">
+    <textarea rows="5" required></textarea>
+    <label>Message</label>
+  </div>
+
+  <button class="btn send-btn">Send Message 🚀</button>
+
+</div>
 </section>
 
 <footer>
